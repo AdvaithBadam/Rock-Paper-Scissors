@@ -24,7 +24,8 @@
     padding-bottom: 15px;
 }
 
-.reset {
+.reset,
+.autoplay-button{
     padding: 10px;
     font-size: 15px;
     cursor: pointer;
@@ -43,4 +44,5 @@ body {
 .title {
     font-size: 30px;
     font-weight: bold;
+
 }
