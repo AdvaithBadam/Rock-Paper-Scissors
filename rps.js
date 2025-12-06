@@ -6,6 +6,28 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
 updateScoreElement();
 
+let isAutoPlaying = false;
+let intervalId;
+
+function autoPlay() {
+    if (!isAutoPlaying) {
+        intervalId = setInterval(function () {
+            const playerMove = pickCompMove();
+            playGame(playerMove);
+        }, 1000);
+        isAutoPlaying = true;
+        document.querySelector('.autoplay-button').innerHTML = 'Stop Auto Play';
+
+
+    }
+
+    else {
+        clearInterval(intervalId);
+        isAutoPlaying = false;
+        document.querySelector('.autoplay-button').innerHTML = 'Auto Play';
+    }
+
+}
 function playGame(playerMove) {
     const compMove = pickCompMove();
     let res = '';
@@ -87,4 +109,5 @@ function pickCompMove() {
         compMove = 'scissors';
     }
     return compMove;
+
 }
